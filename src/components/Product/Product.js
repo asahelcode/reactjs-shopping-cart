@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Product extends Component {
-    handleClick = () => {
-        const { id, addToCart, removeFromCart, isInCart } = this.props;
-
+const Product = ({id, addToCart, removeFromCart, isInCart, name, price, currency, image}) =>  {
+    const handleClick = () => {
         if (isInCart) {
             removeFromCart(id);
         } else {
             addToCart(id);
         }
     }
-
-    render() {
-        const { name, price, currency, image, isInCart } = this.props;
 
         return (
             <div className="product thumbnail">
